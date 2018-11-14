@@ -6,12 +6,12 @@ var Losses = 0
 var counterNum = 0
 
 
-//make the crystal buttons, add a random value to them//
+//make the crystal buttons and give it a random value
 for(var i = 0; i < crystals.length; i++){
     var crystalPic = $("<img>");
     crystalPic.attr('src', crystals[i]); //give the div item an attribute//
     $(".pic").append(crystalPic); //change the div (class=pic) to have the picture from the array//
-    // crystalPic.attr("data-value", math.floor(math.random() * 10 ) + 2 );
+    $(".pic").attr("data-value", math.floor(math.random() * 10 ) + 2 ); //give the crystal a random value//
 }
 
 //Make the Goal number the player wants to get to//
@@ -21,9 +21,10 @@ function goal() {
 
 
 
-//add random number to score using a click event
+//add random number to counter number using a click event
 function clickIt() {
-
+    counterNum += parseInt($(this).attr("value"))
+    $("score")
 }
 
 
@@ -33,8 +34,8 @@ function clickIt() {
      Wins++;
      counterNum = 0;
      goal();
- } else(){
-     alert("You lose! Insert a quarter to continue");
+ } else(counterNum > goalNum){
+     alert("You lose! Would you like to Continue?");
      Losses++;
      counterNum = 0;
      goal();
