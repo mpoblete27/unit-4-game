@@ -34,7 +34,7 @@ function clickIt() {
      Wins++;
      counterNum = 0;
      goal();
- } else(counterNum > goalNum){
+ } else if(counterNum > goalNum){
      alert("You lose! Would you like to Continue?");
      Losses++;
      counterNum = 0;
